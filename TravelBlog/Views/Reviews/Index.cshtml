@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@using TravelBlog.Models;
+@using System.Security.Claims;
+@model ICollection<TravelBlog.Models.Reviews>
+
+  <h1>Reviews</h1>
+
+  @if (Model.Any())
+  {
+    <ul>
+      @foreach (Review review in Model)
+      {
+        <li>@Html.ActionLink($"{review.Title}", "Details", {id = review.ReviewId})</li>
+      }
+    </ul>
+  }
+  else
+  {
+    <h3>No reviews have been added yet!</h3>
+  }
+
+  <p>@Html.ActionLink("Add a new Review", "Create")</p>
+  <p>@Html.ActionLink("Home", "Index", "Home")</p>
