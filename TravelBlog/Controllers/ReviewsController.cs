@@ -8,8 +8,6 @@ using System;
 
 namespace TravelBlog.Controllers
 {
-  [Route("api/[controller]")]
-  [ApiController]
   public class ReviewsController : Controller
   {
     private readonly TravelBlogContext _db;
