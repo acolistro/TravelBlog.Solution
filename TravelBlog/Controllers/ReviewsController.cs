@@ -22,22 +22,18 @@ namespace TravelBlog.Controllers
     [HttpGet]
     public ActionResult<ICollection<Review>> Get(int destinationId, string title, int rating)
     {
-      var query = _db.Reviews.AsQueryable();
+      var query = _db.Reviews.Include(review => review.Destination).AsQueryable();
 
       if (destinationId != 0)
       {
         query = query.Where(entry => entry.DestinationId == destinationId);
+        // destQuery = _db.Destinations.Where(entry => entry.DestinationId == destinationId).FirstOrDefault();
       }
 
       if (title != null)
       {
         query = query.Where(entry => entry.Title == title);
       }
-
-      // if (description != null)
-      // {
-      //   query = query.Where(entry => entry.Description.Contains ;
-      // }
 
       if (rating != 0)
       {

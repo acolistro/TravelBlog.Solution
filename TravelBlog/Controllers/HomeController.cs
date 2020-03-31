@@ -1,7 +1,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace BakeryTreat.Controllers
+namespace TravelBlog.Controllers
 {
   public class HomeController : Controller
   {

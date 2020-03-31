@@ -8,25 +8,11 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
 
-@if(@Model.Destinations.Count == 0)
-{
-  <p>This review does not belong to any Destinations</p>
-}
-else
-{
-  <h4>Destinations the Review belongs to:</h4>
-  <ul>
-  @foreach(var join in Model.Destinations)
-  {
-    <li>@join.Destination.Name</li>
-    @using (Html.BeginForm("DeleteDestination", "Reviews"))
-    {
-      @Html.Hidden("joinId", @join.DestinationReviewId)
-      <input type="submit" value="Delete"/>
-    }
-  }
-  </ul>
-}
+
+  <h4>Destination the Review belongs to:</h4>
+
+  <p>@Model.DestinationId</p>
+
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Review", "Edit", new { id = Model.ReviewId })</p>
